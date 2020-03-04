@@ -5,7 +5,17 @@
 
 // Write a macro that passes the test! No hints this time, you can do it!
 
-// I AM NOT DONE
+mod macros{
+    #[macro_export]
+    macro_rules! my_macro {
+        () => {
+            println!("Test");
+        };
+        ($val:expr) => {
+           "Hello ".to_string() + $val
+        }
+    }
+}
 
 #[cfg(test)]
 mod tests {

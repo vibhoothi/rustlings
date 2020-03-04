@@ -28,6 +28,15 @@ struct Person {
 impl TryFrom<&str> for Person {
     type Error = String;
     fn try_from(s: &str) -> Result<Self, Self::Error> {
+        let person_info: Vec<&str> = s.split(',').collect();
+        if(person_info.len() < 2 ){
+            Err("Error".to_string())
+        }else{
+            Ok(Self{
+                age: person_info[1].parse::<usize>().unwrap(),
+                name: person_info[0].to_string(),
+            })
+        }
     }
 }
 
